@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tomcat-pd
+  labels:
+    type: webserver
+spec:
+  containers:
+    - name: mytomcat
+      image: tomee
+  tolerations:
+    - key: slave2
+      value: vivek
+      effect: NoSchedule
+      operator: Equal
+...

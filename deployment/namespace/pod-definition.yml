@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ghost-pd
+  labels:
+    type: cms
+  namespace: test-ns
+spec:
+  containers:
+    - name: ghost
+      image: ghost
+      ports:
+        - containerPort: 2368
+          hostPort: 7070
+

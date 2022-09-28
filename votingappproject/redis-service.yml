@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-service
+  labels:
+    type: redisservice
+spec:
+  ports:
+    - targetPort: 6379
+      port: 6379
+  selector:
+    type: redis
+    author: vivek
+...

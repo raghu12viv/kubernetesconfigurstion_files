@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgress-deploy
+  labels:
+    type: db
+    author: vivek
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: db
+  template:
+    metadata:
+      name: postgress-pod
+      labels:
+        type: db
+        author: vivek
+    spec:
+       containers:
+          - name: mypostgress
+            image: postgres
+            env: 
+             - name: POSTGRES_PASSWORD
+               value: vivek
+             - name: POSTGRES_USER
+               value: vivek12
+             - name: POSTGRES_DB
+               value: mydb
+

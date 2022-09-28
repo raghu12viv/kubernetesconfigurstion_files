@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+   name: nginx-deployment
+   labels:
+     type: proxy
+     author: vivek
+spec:
+  replicas: 3
+  selector:
+      matchLabels:
+               type: proxy
+               author: vivek
+  template:
+        metadata:
+             name: nginx-pod
+             labels:
+                author: vivek
+                type: proxy
+        spec:
+           containers:
+                   - name: mynginx
+                     image: nginx          

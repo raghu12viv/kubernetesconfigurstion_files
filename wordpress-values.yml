@@ -1,0 +1,10 @@
+---
+wordpressUsername: vivek
+wordpressPassword: vivek12
+wordpressEmail: vickeyraghuvansi@gmail.com
+wordpressFirstName: vivek
+wordpressLastName: singh
+wordpressBlogName: mywordpress.com
+service:
+  type: LoadBalancer
+...    

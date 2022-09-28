@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment
+  labels:
+    type: webserver
+    author: vivek
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: webserver
+      author: vivek
+  template:
+    metadata:
+      name: httpd-pod
+      labels:
+        type: webserver
+        author: vivek
+    spec:
+      containers:
+        - name: myhttpd
+          image: httpd

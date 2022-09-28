@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  labels:
+    type: db
+    author: vivek
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: db
+  template:
+    metadata:
+      name: mysql-db
+      labels:
+        type: db
+        author: vivek
+    spec:
+      containers:
+        - name: mydatabase
+          image: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: vivek
+            - name: MYSQL_USER
+              value: vivek

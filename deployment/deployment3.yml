@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deploy
+  labels:
+    type: webserver
+    author: vivek
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: webserver
+  template:
+    metadata:
+      name: httpd-pod
+      labels: 
+       type: webserver
+       author: vivek
+    spec:
+      containers:
+        - name: myhttpd
+          image: httpd
+          ports:
+            - containerPort: 80
+              hostPort: 9090
